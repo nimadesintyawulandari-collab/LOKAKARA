@@ -56,15 +56,20 @@
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
         }
+        #chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+        #chat-messages::-webkit-scrollbar-thumb {
+            background-color: #C5A059;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body class="bg-bali-warmbg text-gray-800 font-sans antialiased min-h-screen flex flex-col justify-between pattern-bg">
 
-    <!-- Header Navigation -->
     <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md shadow-sm border-b border-bali-gold/20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Brand Logo & Title -->
                 <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('home')">
                     <div class="w-12 h-12 rounded-full bg-gradient-to-br from-bali-gold via-bali-red to-bali-brown flex items-center justify-center text-white font-serif font-bold text-xl shadow-md border-2 border-amber-200">
                         L
@@ -75,7 +80,6 @@
                     </div>
                 </div>
 
-                <!-- Desktop Navigation Tabs -->
                 <nav class="hidden md:flex space-x-1 lg:space-x-2">
                     <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-4 py-2 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 bg-bali-gold/10 text-bali-brown border border-bali-gold/30">
                         <i class="fa-solid fa-house"></i> Beranda
@@ -94,7 +98,6 @@
                     </button>
                 </nav>
 
-                <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg text-gray-700 hover:bg-amber-50">
                         <i class="fa-solid fa-bars text-xl"></i>
@@ -103,7 +106,6 @@
             </div>
         </div>
 
-        <!-- Mobile Navigation Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-amber-100 px-4 pt-2 pb-4 space-y-2">
             <button onclick="switchTab('home'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:bg-amber-50 flex items-center gap-3">
                 <i class="fa-solid fa-house w-5 text-bali-gold"></i> Beranda
@@ -123,12 +125,10 @@
         </div>
     </header>
 
-    <!-- Main Content Container -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
 
         <!-- TAB 1: HOME -->
         <section id="tab-home" class="space-y-12 transition-all duration-300">
-            <!-- Hero Banner -->
             <div class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-bali-brown via-amber-950 to-bali-red text-white p-8 md:p-14 shadow-2xl border border-bali-gold/40">
                 <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
                 <div class="relative z-10 max-w-3xl space-y-6">
@@ -155,7 +155,6 @@
                 </div>
             </div>
 
-            <!-- Features Quick Access Grid -->
             <div>
                 <div class="text-center max-w-2xl mx-auto mb-8 space-y-2">
                     <h2 class="text-2xl font-serif font-bold text-bali-brown">Fitur Utama LOKAKARA</h2>
@@ -163,7 +162,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Feature 1: LOKARIA -->
                     <div onclick="switchTab('lokaria')" class="bg-white rounded-2xl p-6 shadow-sm border border-amber-100 hover:shadow-md hover:border-bali-gold transition-all group cursor-pointer">
                         <div class="w-12 h-12 rounded-xl bg-amber-100 text-bali-darkgold flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-book-bookmark"></i>
@@ -175,7 +173,6 @@
                         </p>
                     </div>
 
-                    <!-- Feature 2: AILOKA -->
                     <div onclick="switchTab('ailoka')" class="bg-white rounded-2xl p-6 shadow-sm border border-emerald-100 hover:shadow-md hover:border-bali-green transition-all group cursor-pointer">
                         <div class="w-12 h-12 rounded-xl bg-emerald-100 text-bali-green flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-robot"></i>
@@ -187,7 +184,6 @@
                         </p>
                     </div>
 
-                    <!-- Feature 3: NANKARA -->
                     <div onclick="switchTab('nankara')" class="bg-white rounded-2xl p-6 shadow-sm border border-rose-100 hover:shadow-md hover:border-bali-red transition-all group cursor-pointer">
                         <div class="w-12 h-12 rounded-xl bg-rose-100 text-bali-red flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-gamepad"></i>
@@ -201,7 +197,6 @@
                 </div>
             </div>
 
-            <!-- Context & Legal / Vision Section -->
             <div class="bg-amber-50/60 rounded-2xl p-6 md:p-8 border border-amber-200/60 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                 <div class="space-y-4">
                     <span class="text-xs font-bold text-bali-red uppercase tracking-wider">Landasan Kebijakan & Filosofi</span>
@@ -241,25 +236,29 @@
 
         <!-- TAB 2: LOKARIA (Ensiklopedia Visual & Panduan) -->
         <section id="tab-lokaria" class="hidden space-y-8 transition-all duration-300">
-            <!-- Header Section -->
-            <div class="bg-gradient-to-r from-bali-brown via-amber-900 to-bali-darkgold rounded-2xl p-6 md:p-8 text-white shadow-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-amber-100">LOKARIA</h2>
-                    <p class="text-sm text-amber-200/90 mt-1">Ensiklopedia Visual & Modul Pembelajaran Upakara Adat Bali</p>
+            <div class="bg-gradient-to-r from-bali-brown via-amber-900 to-bali-darkgold rounded-2xl p-6 md:p-8 text-white shadow-lg flex flex-col gap-5">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-serif font-bold text-amber-100">LOKARIA</h2>
+                        <p class="text-sm text-amber-200/90 mt-1">Ensiklopedia Visual & Modul Pembelajaran Upakara Adat Bali</p>
+                    </div>
+                    <div class="relative w-full md:w-72">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 transform -translate-y-1/2 text-gray-500 text-sm"></i>
+                        <input type="text" id="search-lokaria-input" oninput="searchLokaria(this.value)" placeholder="Cari nama, makna, atau sarana..." class="w-full pl-10 pr-4 py-2.5 rounded-xl text-xs sm:text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-bali-gold border border-white/20 shadow-inner placeholder-gray-400">
+                    </div>
                 </div>
-                <!-- Filter Category Buttons -->
-                <div class="flex flex-wrap gap-2">
+                <div class="flex flex-wrap gap-2 border-t border-white/10 pt-4">
                     <button onclick="filterLokaria('all')" class="lokaria-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-white text-bali-brown shadow">Semua</button>
-                    <button onclick="filterLokaria('nitya')" class="lokaria-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/20 text-white hover:bg-white/30">Nitya (Harian)</button>
+                    <button onclick="filterLokaria('nitya')" class="lokaria-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/20 text-white hover:bg-white/30">Nitya Yadnya</button>
                     <button onclick="filterLokaria('dewa')" class="lokaria-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/20 text-white hover:bg-white/30">Dewa Yadnya</button>
                     <button onclick="filterLokaria('manusa')" class="lokaria-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/20 text-white hover:bg-white/30">Manusa Yadnya</button>
-                    <button onclick="filterLokaria('bhuta')" class="lokaria-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/20 text-white hover:bg-white/30">Bhuta Yadnya</button>
+                    <button onclick="filterLokaria('pabersihan')" class="lokaria-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-white/20 text-white hover:bg-white/30">Pabersihan</button>
                 </div>
             </div>
 
             <!-- Banten Cards Grid Container -->
             <div id="lokaria-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Cards dynamically populated via JavaScript -->
+                <!-- Data populated dynamically via script -->
             </div>
         </section>
 
@@ -279,37 +278,42 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-                <!-- Suggested Questions Sidebar -->
                 <div class="lg:col-span-1 space-y-3">
                     <h3 class="text-xs font-bold uppercase tracking-wider text-gray-500">Pertanyaan Populer</h3>
-                    <div class="space-y-2">
+                    <div class="space-y-2 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
                         <button onclick="sendPrompt('Apa makna dan unsur-unsur penyusun Canang Sari?')" class="w-full text-left p-3 rounded-xl bg-white border border-amber-200/70 hover:border-bali-gold hover:bg-amber-50/50 text-xs text-gray-800 transition-all font-medium flex items-center justify-between group">
-                            <span>"Apa makna dan unsur Canang Sari?"</span>
+                            <span>"Apa makna Canang Sari?"</span>
                             <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-bali-gold"></i>
                         </button>
-                        <button onclick="sendPrompt('Apa perbedaan Banten Pejati dan Canang Sari?')" class="w-full text-left p-3 rounded-xl bg-white border border-amber-200/70 hover:border-bali-gold hover:bg-amber-50/50 text-xs text-gray-800 transition-all font-medium flex items-center justify-between group">
-                            <span>"Apa perbedaan Pejati & Canang Sari?"</span>
+                        <button onclick="sendPrompt('Jelaskan makna dan fungsi Pengambian / Pengambean!')" class="w-full text-left p-3 rounded-xl bg-white border border-amber-200/70 hover:border-bali-gold hover:bg-amber-50/50 text-xs text-gray-800 transition-all font-medium flex items-center justify-between group">
+                            <span>"Makna Pengambian?"</span>
                             <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-bali-gold"></i>
                         </button>
-                        <button onclick="sendPrompt('Jelaskan tingkatan upakara Kantha, Madya, dan Utama!')" class="w-full text-left p-3 rounded-xl bg-white border border-amber-200/70 hover:border-bali-gold hover:bg-amber-50/50 text-xs text-gray-800 transition-all font-medium flex items-center justify-between group">
-                            <span>"Apa itu Kantha, Madya, & Utama?"</span>
+                        <button onclick="sendPrompt('Apa fungsi Banten Suci Ageng dalam Dewa Yadnya?')" class="w-full text-left p-3 rounded-xl bg-white border border-amber-200/70 hover:border-bali-gold hover:bg-amber-50/50 text-xs text-gray-800 transition-all font-medium flex items-center justify-between group">
+                            <span>"Fungsi Banten Suci Ageng?"</span>
                             <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-bali-gold"></i>
                         </button>
-                        <button onclick="sendPrompt('Apa fungsi Banten Daksina dalam upacara adat?')" class="w-full text-left p-3 rounded-xl bg-white border border-amber-200/70 hover:border-bali-gold hover:bg-amber-50/50 text-xs text-gray-800 transition-all font-medium flex items-center justify-between group">
-                            <span>"Apa fungsi Banten Daksina?"</span>
+                        <button onclick="sendPrompt('Apa tujuan dan sarana upacara Byakala?')" class="w-full text-left p-3 rounded-xl bg-white border border-amber-200/70 hover:border-bali-gold hover:bg-amber-50/50 text-xs text-gray-800 transition-all font-medium flex items-center justify-between group">
+                            <span>"Tujuan Banten Byakala?"</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-bali-gold"></i>
+                        </button>
+                        <button onclick="sendPrompt('Bagaimana tata cara dan makna Banten Peras?')" class="w-full text-left p-3 rounded-xl bg-white border border-amber-200/70 hover:border-bali-gold hover:bg-amber-50/50 text-xs text-gray-800 transition-all font-medium flex items-center justify-between group">
+                            <span>"Makna Banten Peras?"</span>
+                            <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-bali-gold"></i>
+                        </button>
+                        <button onclick="sendPrompt('Jelaskan apa itu Gebogan dan maknanya!')" class="w-full text-left p-3 rounded-xl bg-white border border-amber-200/70 hover:border-bali-gold hover:bg-amber-50/50 text-xs text-gray-800 transition-all font-medium flex items-center justify-between group">
+                            <span>"Apa itu Gebogan?"</span>
                             <i class="fa-solid fa-chevron-right text-[10px] text-gray-400 group-hover:text-bali-gold"></i>
                         </button>
                     </div>
 
                     <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 text-xs text-amber-900 space-y-2 mt-4">
                         <p class="font-bold flex items-center gap-1.5"><i class="fa-solid fa-lightbulb text-bali-gold"></i> Catatan Pembelajaran:</p>
-                        <p class="leading-relaxed">AILOKA memberikan rujukan sesuai dengan tradisi sastra Hindu Bali dan kajian kearifan lokal Sad Kerthi.</p>
+                        <p class="leading-relaxed">AILOKA memberikan rujukan komprehensif sesuai dengan tradisi sastra Hindu Bali dan kajian kearifan lokal Sad Kerthi.</p>
                     </div>
                 </div>
 
-                <!-- Chat Box Main Interface -->
-                <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm flex flex-col h-[520px]">
-                    <!-- Chat Header -->
+                <div class="lg:col-span-3 bg-white rounded-2xl border border-gray-200 shadow-sm flex flex-col h-[560px]">
                     <div class="p-4 border-b border-gray-100 flex items-center justify-between bg-gray-50/80 rounded-t-2xl">
                         <div class="flex items-center gap-3">
                             <div class="w-9 h-9 rounded-full bg-bali-green text-white flex items-center justify-center font-bold text-sm">
@@ -317,7 +321,7 @@
                             </div>
                             <div>
                                 <h4 class="text-sm font-bold text-gray-900">Virtual Pemangku LOKAKARA</h4>
-                                <p class="text-[10px] text-emerald-600 font-medium">Online • Siap menjawab pertanyaan</p>
+                                <p class="text-[10px] text-emerald-600 font-medium">Online • Siap menjawab pertanyaan detail</p>
                             </div>
                         </div>
                         <button onclick="clearChat()" class="text-xs text-gray-400 hover:text-red-500 transition-colors flex items-center gap-1">
@@ -325,24 +329,21 @@
                         </button>
                     </div>
 
-                    <!-- Chat Message Area -->
                     <div id="chat-messages" class="flex-grow p-4 overflow-y-auto space-y-4">
-                        <!-- Initial AI Welcome Message -->
                         <div class="flex items-start gap-3">
                             <div class="w-8 h-8 rounded-full bg-bali-green text-white flex-shrink-0 flex items-center justify-center text-xs">
                                 <i class="fa-solid fa-om"></i>
                             </div>
                             <div class="chat-bubble-ai rounded-2xl rounded-tl-none p-4 max-w-[85%] text-xs sm:text-sm text-gray-800 shadow-sm leading-relaxed">
                                 <p class="font-bold text-bali-brown mb-1">Om Swastyastu! 🙏</p>
-                                <p>Selamat datang di <strong>AILOKA</strong>. Saya siap membantu Anda mempelajari filosofi, sarana, serta makna di balik upakara dan banten adat Bali. Silakan tanyakan apa yang ingin Anda ketahui!</p>
+                                <p>Selamat datang di <strong>AILOKA</strong>. Saya siap membantu Anda mempelajari filosofi, sarana, makna upakara, hari raya, hingga Panca Yadnya berdasarkan referensi naskah sastra Hindu Bali. Silakan tanyakan apa yang ingin Anda ketahui!</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Chat Input Controls -->
                     <div class="p-3 border-t border-gray-100 bg-white rounded-b-2xl">
                         <form id="chat-form" onsubmit="handleChatSubmit(event)" class="flex gap-2">
-                            <input type="text" id="chat-input" placeholder="Tanyakan seputar upakara dan banten Bali di sini..." class="flex-grow px-4 py-2.5 text-xs sm:text-sm rounded-xl border border-gray-200 focus:outline-none focus:border-bali-gold focus:ring-1 focus:ring-bali-gold">
+                            <input type="text" id="chat-input" placeholder="Tanyakan seputar upakara, banten, atau hari raya Bali di sini..." class="flex-grow px-4 py-2.5 text-xs sm:text-sm rounded-xl border border-gray-200 focus:outline-none focus:border-bali-gold focus:ring-1 focus:ring-bali-gold">
                             <button type="submit" class="px-5 py-2.5 rounded-xl bg-bali-green text-white font-semibold text-xs sm:text-sm hover:bg-emerald-800 transition-colors flex items-center gap-2">
                                 <span>Kirim</span>
                                 <i class="fa-solid fa-paper-plane"></i>
@@ -355,7 +356,6 @@
 
         <!-- TAB 4: NANKARA (Kuis Interaktif) -->
         <section id="tab-nankara" class="hidden space-y-8 transition-all duration-300">
-            <!-- Header Section -->
             <div class="bg-gradient-to-r from-bali-red via-red-900 to-amber-950 rounded-2xl p-6 text-white shadow-lg flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
                     <h2 class="text-2xl sm:text-3xl font-serif font-bold text-amber-100">NANKARA</h2>
@@ -365,448 +365,184 @@
                     <i class="fa-solid fa-trophy text-bali-gold text-xl"></i>
                     <div>
                         <p class="text-[10px] uppercase text-amber-200 font-bold">Skor Anda</p>
-                        <p id="quiz-score-display" class="text-lg font-bold text-white">0 / 100</p>
+                        <p id="quiz-score-display" class="text-lg font-bold text-white">0</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Quiz Card Box -->
             <div class="max-w-3xl mx-auto bg-white rounded-3xl border border-amber-200 shadow-xl overflow-hidden">
-                <!-- Quiz Progress Bar -->
                 <div class="w-full bg-gray-100 h-2">
-                    <div id="quiz-progress-bar" class="bg-gradient-to-r from-bali-gold to-bali-red h-2 transition-all duration-300" style="width: 20%;"></div>
+                    <div id="quiz-progress-bar" class="bg-gradient-to-r from-bali-gold to-bali-red h-2 transition-all duration-300" style="width: 0%;"></div>
                 </div>
 
                 <div class="p-6 sm:p-10 space-y-6">
                     <div class="flex justify-between items-center text-xs text-gray-500 font-semibold uppercase tracking-wider">
-                        <span id="quiz-step-indicator">Pertanyaan 1 dari 5</span>
-                        <span class="text-bali-red"><i class="fa-solid fa-clock"></i> Kuis Edukasi</span>
+                        <span id="quiz-step-indicator">Memuat Kuis...</span>
+                        <span class="text-bali-red"><i class="fa-solid fa-clock"></i> Kuis Edukasi Ekstensif</span>
                     </div>
 
-                    <!-- Question Title -->
                     <h3 id="quiz-question-title" class="text-lg sm:text-xl font-bold text-gray-900 leading-snug">
                         Loading pertanyaan...
                     </h3>
 
-                    <!-- Optional Quiz Image -->
                     <div id="quiz-image-container" class="hidden rounded-2xl overflow-hidden max-h-48 bg-amber-50 border border-amber-100">
                         <img id="quiz-image" src="" alt="Soal Upakara" class="w-full h-full object-cover">
                     </div>
 
-                    <!-- Options Grid -->
-                    <div id="quiz-options-container" class="grid grid-cols-1 gap-3 pt-2">
-                        <!-- Quiz option buttons generated by JS -->
+                    <div id="quiz-options-container" class="grid grid-cols-1 gap-3">
+                        <!-- Options generated dynamically -->
                     </div>
 
-                    <!-- Feedback message box -->
-                    <div id="quiz-feedback" class="hidden p-4 rounded-xl text-xs sm:text-sm font-medium leading-relaxed"></div>
+                    <div id="quiz-feedback-box" class="hidden p-4 rounded-xl text-xs sm:text-sm"></div>
 
-                    <!-- Navigation Controls -->
-                    <div class="pt-4 flex justify-between items-center border-t border-gray-100">
-                        <button onclick="restartQuiz()" class="px-4 py-2 rounded-xl text-xs font-semibold text-gray-500 hover:text-bali-brown hover:bg-amber-50 transition-all flex items-center gap-1.5">
-                            <i class="fa-solid fa-rotate-left"></i> Mulai Ulang
+                    <div class="flex justify-between pt-4 border-t border-gray-100">
+                        <button onclick="resetQuiz()" class="px-4 py-2 rounded-xl border border-gray-300 text-gray-600 text-xs font-semibold hover:bg-gray-50">
+                            <i class="fa-solid fa-rotate-right mr-1"></i> Ulangi Kuis
                         </button>
-                        <button id="quiz-next-btn" onclick="nextQuestion()" class="hidden px-6 py-2.5 rounded-xl bg-bali-brown text-white font-bold text-xs sm:text-sm hover:bg-amber-950 transition-all items-center gap-2">
-                            <span>Pertanyaan Berikutnya</span>
-                            <i class="fa-solid fa-arrow-right"></i>
+                        <button id="quiz-next-btn" onclick="nextQuizQuestion()" class="hidden px-6 py-2.5 rounded-xl bg-bali-gold text-slate-950 font-bold text-xs sm:text-sm hover:bg-amber-500 transition-all">
+                            Pertanyaan Selanjutnya <i class="fa-solid fa-arrow-right ml-1"></i>
                         </button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- TAB 5: DATA RISET & TENTANG KAMI -->
-        <section id="tab-tentang" class="hidden space-y-10 transition-all duration-300">
-            <!-- Header -->
-            <div class="bg-gradient-to-r from-bali-brown to-amber-900 rounded-2xl p-6 text-white shadow-md">
-                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-amber-100">Data Latar Belakang & Tim Pengembang</h2>
-                <p class="text-xs sm:text-sm text-amber-200/90 mt-1">Inovasi Platform Digital Website LOKAKARA oleh SMA Negeri 1 Tabanan</p>
+        <!-- TAB 5: TENTANG / DATA RISET & TIM -->
+        <section id="tab-tentang" class="hidden space-y-8 transition-all duration-300">
+            <div class="bg-gradient-to-r from-bali-brown via-amber-900 to-bali-red rounded-2xl p-6 md:p-8 text-white shadow-lg space-y-3">
+                <h2 class="text-2xl md:text-3xl font-serif font-bold text-amber-100">Data Riset & Tim Pengembang LOKAKARA</h2>
+                <p class="text-sm text-amber-200/90 leading-relaxed max-w-3xl">
+                    Inovasi platform digital ini dirancang sebagai bentuk dedikasi melestarikan kebudayaan dan tradisi leluhur Bali melalui pendekatan teknologi modern, edukasi visual, serta kecerdasan buatan.
+                </p>
             </div>
 
-            <!-- Survey Stats Breakdown -->
-            <div class="space-y-4">
-                <h3 class="text-xl font-serif font-bold text-bali-brown flex items-center gap-2">
-                    <i class="fa-solid fa-chart-column text-bali-gold"></i> Hasil Kuesioner Awal (35 Siswa SMA Negeri 1 Tabanan)
-                </h3>
-                <p class="text-xs sm:text-sm text-gray-600">Survei menunjukkan perlunya platform digital yang sistematis, visual, dan interaktif untuk menjembatani kesenjangan pengetahuan kebudayaan.</p>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div class="bg-white p-5 rounded-2xl border border-amber-200/70 shadow-sm space-y-2">
-                        <div class="text-3xl font-extrabold text-bali-red">97.2%</div>
-                        <p class="text-xs font-bold text-gray-800">Pengetahuan Terbatas</p>
-                        <p class="text-xs text-gray-500">Merasa pengetahuan seputar upakara dan banten masih sangat minim.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-2xl p-6 border border-amber-200/70 shadow-sm space-y-4">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 text-bali-darkgold flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-bullseye"></i>
                     </div>
-                    <div class="bg-white p-5 rounded-2xl border border-amber-200/70 shadow-sm space-y-2">
-                        <div class="text-3xl font-extrabold text-bali-darkgold">77.1%</div>
-                        <p class="text-xs font-bold text-gray-800">Tidak Belajar Mendalam</p>
-                        <p class="text-xs text-gray-500">Belum pernah mempelajari upakara secara mendalam dan terstruktur.</p>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl border border-amber-200/70 shadow-sm space-y-2">
-                        <div class="text-3xl font-extrabold text-amber-600">74.3%</div>
-                        <p class="text-xs font-bold text-gray-800">Kesulitan Cari Sumber</p>
-                        <p class="text-xs text-gray-500">Kesulitan menemukan sumber belajar upakara yang valid & tepat.</p>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl border border-amber-200/70 shadow-sm space-y-2">
-                        <div class="text-3xl font-extrabold text-bali-green">62.8%</div>
-                        <p class="text-xs font-bold text-gray-800">Bingung Tingkatan Banten</p>
-                        <p class="text-xs text-gray-500">Kesulitan membedakan jenis & tingkatan upakara/banten.</p>
-                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Latar Belakang & Urgensi</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                        Berdasarkan riset pendahuluan, sekitar 74,3% generasi muda mengalami kendala dalam mengakses informasi terkait tata cara, bahan, serta makna upakara adat Bali secara praktis. LOKAKARA hadir untuk merespons tantangan tersebut dengan menyediakan ensiklopedia digital terpercaya berbasis naskah pustaka dan tradisi lokal.
+                    </p>
                 </div>
-            </div>
 
-            <!-- Innovation Objectives -->
-            <div class="bg-white rounded-2xl p-6 md:p-8 border border-gray-200 shadow-sm space-y-4">
-                <h3 class="text-lg font-serif font-bold text-bali-brown">Tujuan & Manfaat Inovasi</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-gray-700">
-                    <div class="flex items-start gap-3 bg-amber-50/50 p-4 rounded-xl border border-amber-100">
-                        <i class="fa-solid fa-bullseye text-bali-gold text-lg mt-0.5"></i>
-                        <div>
-                            <strong>Penyediaan Informasi Sistematis:</strong> Menjadikan website LOKAKARA sebagai pusat pembelajaran digital seputar upakara dan banten Bali yang terstruktur.
-                        </div>
+                <div class="bg-white rounded-2xl p-6 border border-amber-200/70 shadow-sm space-y-4">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-bali-green flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-users"></i>
                     </div>
-                    <div class="flex items-start gap-3 bg-amber-50/50 p-4 rounded-xl border border-amber-100">
-                        <i class="fa-solid fa-shield-halved text-bali-gold text-lg mt-0.5"></i>
-                        <div>
-                            <strong>Pelestarian Warisan Budaya:</strong> Mendokumentasikan pengetahuan yang tadinya diwariskan secara lisan ke dalam format digital modern.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team Profile Section -->
-            <div class="space-y-4">
-                <h3 class="text-xl font-serif font-bold text-bali-brown flex items-center gap-2">
-                    <i class="fa-solid fa-users text-bali-brown"></i> Susunan Tim Inovasi (SMA Negeri 1 Tabanan)
-                </h3>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    <div class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm text-center space-y-3">
-                        <div class="w-16 h-16 rounded-full bg-amber-100 text-bali-brown mx-auto flex items-center justify-center font-bold text-xl">
-                            CP
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900 text-sm">Cokorda Puteri Cinta Anindya Wiratni</h4>
-                            <p class="text-xs text-bali-gold font-semibold uppercase mt-0.5">Ketua Tim Inovasi</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm text-center space-y-3">
-                        <div class="w-16 h-16 rounded-full bg-amber-100 text-bali-brown mx-auto flex items-center justify-center font-bold text-xl">
-                            IG
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900 text-sm">I Gusti Ayu Cahya Paramitha</h4>
-                            <p class="text-xs text-bali-gold font-semibold uppercase mt-0.5">Wakil Ketua</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-white p-6 rounded-2xl border border-amber-200 shadow-sm text-center space-y-3">
-                        <div class="w-16 h-16 rounded-full bg-amber-100 text-bali-brown mx-auto flex items-center justify-center font-bold text-xl">
-                            NM
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-gray-900 text-sm">Ni Made Sintya Wulandari</h4>
-                            <p class="text-xs text-bali-gold font-semibold uppercase mt-0.5">Sekretaris</p>
-                        </div>
-                    </div>
+                    <h3 class="text-lg font-bold text-gray-900">Tim Pengembang (SMA Negeri 1 Tabanan)</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                        Platform ini dikembangkan secara kolaboratif oleh tim peneliti muda SMAN 1 Tabanan untuk kompetisi Inovasi Daerah Kabupaten Tabanan (Jayaning Singasana), dengan bimbingan guru pembina serta narasumber pemangku adat setempat.
+                    </p>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Detail Modal for Banten (LOKARIA) -->
-    <div id="banten-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
-        <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden border border-amber-200 max-h-[90vh] flex flex-col my-auto">
-            <!-- Modal Header -->
-            <div class="relative bg-gradient-to-r from-bali-brown to-amber-950 text-white p-6">
-                <button onclick="closeModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-                <span id="modal-category-badge" class="px-2.5 py-1 rounded-md bg-bali-gold text-slate-950 font-bold text-[10px] uppercase">Kategori</span>
-                <h3 id="modal-title" class="text-2xl font-serif font-bold mt-2 text-amber-100">Nama Banten</h3>
-            </div>
-
-            <!-- Modal Content Body -->
-            <div class="p-6 overflow-y-auto space-y-6 text-xs sm:text-sm text-gray-700">
-                <!-- Overview Image & Meaning -->
-                <div class="flex flex-col sm:flex-row gap-4 items-center">
-                    <img id="modal-image" src="" alt="Banten" class="w-full sm:w-40 h-32 object-cover rounded-xl border border-amber-200">
-                    <div class="space-y-1 flex-grow">
-                        <h4 class="font-bold text-bali-brown text-sm">Makna & Fungsi Filosofis:</h4>
-                        <p id="modal-meaning" class="text-gray-600 leading-relaxed"></p>
-                    </div>
-                </div>
-
-                <!-- Sarana / Materials -->
-                <div class="space-y-2 border-t border-gray-100 pt-4">
-                    <h4 class="font-bold text-bali-brown text-sm flex items-center gap-2">
-                        <i class="fa-solid fa-leaf text-bali-green"></i> Bahan & Sarana Penyusun (Unsur)
-                    </h4>
-                    <ul id="modal-sarana-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2 list-disc list-inside bg-amber-50/50 p-4 rounded-xl border border-amber-100">
-                        <!-- Sarana items populated by JS -->
-                    </ul>
-                </div>
-
-                <!-- Steps Guide -->
-                <div class="space-y-2 border-t border-gray-100 pt-4">
-                    <h4 class="font-bold text-bali-brown text-sm flex items-center gap-2">
-                        <i class="fa-solid fa-list-check text-bali-gold"></i> Tata Cara & Langkah Pembuatan
-                    </h4>
-                    <ol id="modal-steps-list" class="space-y-2 list-decimal list-inside bg-gray-50 p-4 rounded-xl border border-gray-200">
-                        <!-- Step items populated by JS -->
-                    </ol>
-                </div>
-            </div>
-
-            <!-- Modal Footer -->
-            <div class="p-4 bg-gray-50 border-t border-gray-100 flex justify-end">
-                <button onclick="closeModal()" class="px-5 py-2 rounded-xl bg-bali-brown text-white font-semibold text-xs hover:bg-amber-950 transition-colors">
-                    Tutup Modul
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-bali-brown text-amber-100 border-t border-bali-gold/30 mt-12 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3">
-            <div class="flex justify-center items-center gap-2 text-lg font-serif font-bold text-bali-gold">
-                <span>LOKAKARA</span>
-            </div>
-            <p class="text-xs text-amber-200/80 max-w-xl mx-auto">
-                Platform Digital Edukasi Upakara Adat Bali • Inovasi Daerah Jayaning Singasana • Kabupaten Tabanan 2026
-            </p>
-            <p class="text-[11px] text-amber-200/50">
-                &copy; 2026 LOKAKARA. Dikembangkan oleh Tim SMA Negeri 1 Tabanan.
-            </p>
-        </div>
+    <footer class="bg-white border-t border-amber-200/60 mt-12 py-8 text-center text-xs text-gray-600 space-y-2">
+        <p class="font-serif font-bold text-bali-brown text-sm">LOKAKARA — Platform Edukasi Upakara Adat Bali</p>
+        <p>&copy; 2026 Tim LOKAKARA. Hak Cipta Dilindungi Undang-Undang. Mendukung 100 Tahun Bali Era Baru.</p>
     </footer>
 
-    <!-- JavaScript Application Logic -->
     <script>
-        // Database of Upakara & Banten for LOKARIA
-        const bantenData = [
+        // Data Banten Lengkap dari Dokumen Referensi (Lokaria)
+        const lokariaData = [
             {
-                id: 'canang-sari',
-                category: 'nitya',
-                categoryName: 'Nitya (Harian)',
-                title: 'Canang Sari',
-                image: 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?auto=format&fit=crop&w=600&q=80',
-                meaning: 'Canang Sari adalah sarana upakara harian pokok umat Hindu Bali sebagai simbol bahasa roh, rasa syukur, serta pengorbanan suci (Tattwa & Yadnya) kehadirat Ida Sang Hyang Widhi Wasa.',
-                sarana: [
-                    'Ceper / Ceper daun pisang (Alas simbol Arda Candra)',
-                    'Porosan (Siri, kapur, pinang - simbol Tri Murti)',
-                    'Tebu, Pisang, dan Kue/Jajan',
-                    'Sampian Uras / Bunga 4 Warna (Timur: Putih, Selatan: Merah, Barat: Kuning, Utara: Hitam/Biru)',
-                    'Bunga Kanthil & Bunga Wangi',
-                    'Kembang Rampai & Sekar'
-                ],
-                steps: [
-                    'Siapkan ceper berukuran persegi sebagai alas utama.',
-                    'Letakkan beras (sekar/biji-bijian) dan porosan di tengah ceper.',
-                    'Tambahkan irisan tebu, pisang, serta kue tradisional secukupnya.',
-                    'Pasang sampian uras di atas susunan ceper.',
-                    'Susun bunga-bunga sesuai arah mata angin (Ista Devata).',
-                    'Taburi kembang rampai wangi di bagian paling atas.'
-                ]
+                nama: "Pengambian / Pengambean",
+                kategori: "nitya",
+                tag: "Nitya Yadnya / Manusa Yadnya",
+                makna: "Melambangkan dada kiri/anggā yadnya, berkaitan dengan pengambilan atau penerimaan unsur/anugerah serta kelancaran upacara[cite: 2].",
+                bahan: "Aledan/taledan; beras; benang; uang; raka-raka; kojong; tumpeng; tulung; tipat pengambean; ulam sesuai pakem; sampian pengambean[cite: 2].",
+                gambar: "pengambian.jpg"
             },
             {
-                id: 'pejati',
-                category: 'dewa',
-                categoryName: 'Dewa Yadnya',
-                title: 'Banten Pejati',
-                image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=600&q=80',
-                meaning: 'Pejati berasal dari kata "jati" yang berarti sungguh-sungguh atau nyata. Banten Pejati digunakan sebagai penyaksi kesungguhan hati umat dalam melaksanakan upacara keagamaan.',
-                sarana: [
-                    'Daksina (Perwujudan Tuhan/Brahma-Vishnu-Shiva)',
-                    'Peras (Simbol permohonan agar upacara sukses)',
-                    'Sodan / Ajuman (Simbol persembahan makanan)',
-                    'Tipat Kelanan (Enam buah ketupat)',
-                    'Canang Sari & Pasucian'
-                ],
-                steps: [
-                    'Atur tamas/alas dari janur yang dirangkai bulat.',
-                    'Susun Daksina lengkap di bagian tengah.',
-                    'Atur Banten Peras di sisi samping Daksina.',
-                    'Tambahkan Sodan/Ajuman lengkap dengan buah dan jajan.',
-                    'Lengkapi dengan Tipat Kelanan dan Canang Sari di bagian atas.'
-                ]
+                nama: "Sesayut",
+                kategori: "nitya",
+                tag: "Nitya Yadnya",
+                makna: "Merupakan sarana permohonan/harapan tertentu dengan tujuan yang berbeda-beda mengikuti jenis dan maksud upacara[cite: 2].",
+                bahan: "Taled/tamas sesayut; sampian/jejaitan; beras atau nasi; kacang/saur; buah; pisang; jajan; tebu; bantal/tape sesuai jenis; kojong[cite: 2].",
+                gambar: "sesayut.jpg"
             },
             {
-                id: 'kwangen',
-                category: 'nitya',
-                categoryName: 'Nitya / Pemujaan',
-                title: 'Kwangen',
-                image: 'https://images.unsplash.com/photo-1596401057633-5310024b6575?auto=format&fit=crop&w=600&q=80',
-                meaning: 'Kwangen mewakili wujud Ida Sang Hyang Widhi Wasa dan Sang Hyang Atma. Biasa digunakan saat persembahyangan (Kramaning Sembah) untuk memohon keselamatan.',
-                sarana: [
-                    'Kojong Janur / Daun Pisang bentukan kerucut',
-                    'Dua buah uang kepeng / koin bolong (Artha)',
-                    'Porosan & Kembang Rampai',
-                    'Bunga harum & Bunga Kanthil'
-                ],
-                steps: [
-                    'Bentuk daun pisang/janur menjadi kojong kerucut runcing.',
-                    'Isi bagian dalam kojong dengan porosan.',
-                    'Tancapkan bunga wangi dan bunga kanthil di mulut kojong.',
-                    'Masukkan koin kepeng di bagian depan bunga.',
-                    'Kwangen siap digunakan dalam persembahyangan.'
-                ]
+                nama: "Dapetan",
+                kategori: "nitya",
+                tag: "Nitya Yadnya",
+                makna: "Merupakan nyasa Karma Wasana, mengandung ajaran syukur, tanggung jawab atas perbuatan, serta pemenuhan yadnya[cite: 2].",
+                bahan: "Taledan/tamas; buah; pisang; kue/jajan; satu tumpeng putih; lauk secukupnya; penyeneng; sampyan jaet guak; canang sari[cite: 2].",
+                gambar: "dapetan.jpg"
             },
             {
-                id: 'daksina',
-                category: 'dewa',
-                categoryName: 'Dewa Yadnya',
-                title: 'Banten Daksina',
-                image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80',
-                meaning: 'Daksina adalah penumpangan sthana (linggih) Sang Hyang Widhi dan para Dewa. Daksina wajib ada dalam hampir setiap tingkatan upacara Hindu Bali.',
-                sarana: [
-                    'Wakul / Kelapa gundul dibungkus janur',
-                    'Telur bebek, Pangi, Tingkih (Kemiri), Baling-baling',
-                    'Beras, Benang Tridatu, Porosan',
-                    'Guntingan daun pisang & Bunga'
-                ],
-                steps: [
-                    'Siapkan wakul janur (slobok) berbentuk tabung.',
-                    'Masukkan alas beras dan porosan di dasar wakul.',
-                    'Letakkan kelapa gundul yang telah dibersihkan di tengah.',
-                    'Masukkan pangi, kemiri, telur bebek wrap, dan benang tridatu.',
-                    'Tutup dengan sampian daksina dan bunga.'
-                ]
+                nama: "Gebogan",
+                kategori: "dewa",
+                tag: "Dewa Yadnya / Manusa Yadnya",
+                makna: "Melambangkan perkumpulan/penyatuan hasil karya alam semesta sebagai wujud syukur dan bhakti kepada Ida Sang Hyang Widhi Wasa[cite: 2].",
+                bahan: "Buah-buahan unsur Panca Rengga; jajan Begina dan Uli; sampian/canang Gebogan; bunga; alas/kerangka gebogan[cite: 2].",
+                gambar: "gebogan.jpg"
             },
             {
-                id: 'segehan',
-                category: 'bhuta',
-                categoryName: 'Bhuta Yadnya',
-                title: 'Segehan',
-                image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80',
-                meaning: 'Segehan adalah persembahan harmonisasi kepada Bhuta Kala (alam bawah/lingkungan) agar tidak mengganggu kehidupan manusia dan menjaga keseimbangan alam.',
-                sarana: [
-                    'Alas taledan / daun pisang kecil',
-                    'Nasi segehan (Poleng/Manca Warna)',
-                    'Bawang, Jahe, Garam',
-                    'Porosan & Canang ceper kecil',
-                    'Tetabuhan (Arak & Berem)'
-                ],
-                steps: [
-                    'Sediakan taledan daun pisang segitiga/persegi.',
-                    'Taruh 2 atau 5 tanding nasi kepal kecil.',
-                    'Tambahkan irisan bawang merah, jahe, dan sedikit garam.',
-                    'Lengkapi dengan porosan dan bunga sederhana.',
-                    'Sajikan di bawah/lantai dengan percikan arak berem.'
-                ]
+                nama: "Peras",
+                kategori: "nitya",
+                tag: "Nitya Yadnya",
+                makna: "Berkaitan dengan prasidha/sidhi, yaitu permohonan agar upacara atau kegiatan yang dilaksanakan mencapai keberhasilan dan restu[cite: 2].",
+                bahan: "Tamas/taledan/ceper; aled/kulit peras; beras; benang; base tampel/porosan; uang kepeng/recehan; buah; pisang; kue; dua tumpeng; rerasmen/lauk[cite: 2].",
+                gambar: "peras.jpg"
             },
             {
-                id: 'pras',
-                category: 'manusa',
-                categoryName: 'Manusa Yadnya',
-                title: 'Banten Pras',
-                image: 'https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=600&q=80',
-                meaning: 'Banten Pras berfungsi sebagai permohonan "Prasida" yang artinya semoga tujuan upacara dikabulkan dan memproleh keberhasilan/kelancaran.',
-                sarana: [
-                    'Tamas alas janur',
-                    'Nasi tumpeng 2 buah',
-                    'Kue tradisional & Kelapa muda',
-                    'Sampian Pras & Porosan'
-                ],
-                steps: [
-                    'Susun tamas sebagai alas utama.',
-                    'Letakkan 2 buah tumpeng nasi putih simetris.',
-                    'Lengkapi dengan rupa-rupa kue dan buah-buahan.',
-                    'Tutup dengan sampian pras di puncaknya.'
-                ]
+                nama: "Canang Sari",
+                kategori: "nitya",
+                tag: "Nitya Yadnya",
+                makna: "Sarana persembahan harian yang paling mendasar sebagai wujud bhakti, ketulusan hati, dan rasa syukur kepada Ida Sang Hyang Widhi Wasa[cite: 2].",
+                bahan: "Ceper/tamas, janur atau jejahitan, porosan (daun sirih, kapur, pinang), bunga aneka warna, dan kembang rampai[cite: 2].",
+                gambar: "canang_sari.jpg"
+            },
+            {
+                nama: "Suci Ageng",
+                kategori: "dewa",
+                tag: "Dewa Yadnya",
+                makna: "Banten suci utama yang ditanding pada sok suci biasa untuk upacara besar keagamaan[cite: 3].",
+                bahan: "Panca Pala, Duma, Bayuan, Peras, Samuhan Guling, Guru, Saraswati, Sanganan Ayunan, Lampadan, Lingga, Guling Bebek, Kelungah, Daksina[cite: 3].",
+                gambar: "suci_ageng.jpg"
+            },
+            {
+                nama: "Byakala",
+                kategori: "pabersihan",
+                tag: "Pabersihan / Manusa Yadnya",
+                makna: "Sarana pembersihan niskala (pabersihan diri) untuk menghilangkan cuntaka atau pengaruh negatif[cite: 3].",
+                bahan: "Sidi, taledan berisi kulit peras pandan berduri, raka-raka, sampian nagasari, pesucian, lis amuan-amuan, nasi metajuh, nasi metimpuh, sabet serabut kelapa[cite: 3].",
+                gambar: "byakala.jpg"
+            },
+            {
+                nama: "Penglukatan",
+                kategori: "pabersihan",
+                tag: "Pabersihan / Dewa Yadnya",
+                makna: "Sarana untuk memohon pembersihan lahir dan batin ke hadapan Ida Sang Hyang Widhi Wasa[cite: 3].",
+                bahan: "Toya/sumber air suci, bunga 5 warna, daun dadap, daun kayu tulak, daun kemuning, daun suda mala, ambengan[cite: 3].",
+                gambar: "penglukatan.jpg"
             }
         ];
 
-        // Quiz Questions Database for NANKARA
-        const quizData = [
-            {
-                question: 'Apa fungsi utama dari Banten Pejati dalam setiap upacara adat Bali?',
-                options: [
-                    'Sebagai persembahan khusus untuk Bhuta Kala',
-                    'Sebagai penyaksi kesungguhan hati (Jati) dalam melangsungkan upacara',
-                    'Sebagai hiasan dekoratif pelengkap pura',
-                    'Sebagai sarana pengganti konsumsi tamu'
-                ],
-                correct: 1,
-                explanation: 'Pejati berasal dari kata "Jati" (nyata/sungguh-sungguh). Banten ini berfungsi sebagai bukti kesungguhan hati umat menghaturkan rasa bakti.'
-            },
-            {
-                question: 'Unsur sarana porosan dalam Canang Sari melambangkan konsep ajaran apakah?',
-                options: [
-                    'Tri Hita Karana',
-                    'Tri Murti (Brahma, Vishnu, Shiva)',
-                    'Sad Ripu',
-                    'Panca Maha Bhuta'
-                ],
-                correct: 1,
-                explanation: 'Porosan terdiri dari Siri (Vishnu), Kapur (Shiva), dan Pinang (Brahma) yang melambangkan penghormatan kepada Tri Murti.'
-            },
-            {
-                question: 'Banten apakah yang ditujukan khusus untuk menjaga keharmonisan alam bawah (Bhuta Yadnya)?',
-                options: [
-                    'Banten Daksina',
-                    'Kwangen',
-                    'Segehan',
-                    'Canang Sari'
-                ],
-                correct: 2,
-                explanation: 'Segehan dihaturkan kepada Bhuta Kala di atas tanah/lantai sebagai bentuk penyelarasan hubungan manusia dengan lingkungan fisik.'
-            },
-            {
-                question: 'Tingkatan upakara terbagi menjadi 3 skala prioritas, yaitu:',
-                options: [
-                    'Awal, Tengah, Akhir',
-                    'Kantha (Nista), Madya, Utama',
-                    'Kecil, Sedang, Besar',
-                    'Lokal, Nasional, Global'
-                ],
-                correct: 1,
-                explanation: 'Tingkatan upakara adat Hindu Bali terbagi menjadi Kantha/Nista (sederhana), Madya (sedang), dan Utama (besar/lengkap).'
-            },
-            {
-                question: 'Apakah filosofi utama landasan pembangunan budaya Bali yang menjadi dasar platform LOKAKARA?',
-                options: [
-                    'Tri Hita Karana & Sad Kerthi',
-                    'Bhinneka Tunggal Ika',
-                    'Tat Twam Asi saja',
-                    'Catur Asrama'
-                ],
-                correct: 0,
-                explanation: 'LOKAKARA berlandaskan Tri Hita Karana (keharmonisan 3 hubungan) dan nilai Sad Kerthi menuju Bali Era Baru.'
-            }
-        ];
-
-        let currentQuizIndex = 0;
-        let score = 0;
-        let userAnswers = [];
-
-        window.onload = function() {
-            renderLokariaGrid(bantenData);
-            loadQuizQuestion();
-        };
-
-        function switchTab(tabName) {
-            // Hide all tab sections
-            document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
-            
-            // Show target section
-            const target = document.getElementById(`tab-${tabName}`);
-            if(target) target.classList.remove('hidden');
-
-            // Reset navigation button active styles
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('bg-bali-gold/10', 'text-bali-brown', 'border', 'border-bali-gold/30');
-                btn.classList.add('text-gray-600');
+        // Navigasi Tab Switcher
+        function switchTab(tabId) {
+            const tabs = ['home', 'lokaria', 'ailoka', 'nankara', 'tentang'];
+            tabs.forEach(t => {
+                const el = document.getElementById(`tab-${t}`);
+                const nav = document.getElementById(`nav-${t}`);
+                if (el) el.classList.add('hidden');
+                if (nav) {
+                    nav.classList.remove('bg-bali-gold/10', 'text-bali-brown', 'border', 'border-bali-gold/30');
+                    nav.classList.add('text-gray-600', 'hover:text-bali-brown');
+                }
             });
 
-            const activeNav = document.getElementById(`nav-${tabName}`);
-            if(activeNav) {
+            const activeEl = document.getElementById(`tab-${tabId}`);
+            const activeNav = document.getElementById(`nav-${tabId}`);
+            if (activeEl) activeEl.classList.remove('hidden');
+            if (activeNav) {
+                activeNav.classList.remove('text-gray-600', 'hover:text-bali-brown');
                 activeNav.classList.add('bg-bali-gold/10', 'text-bali-brown', 'border', 'border-bali-gold/30');
-                activeNav.classList.remove('text-gray-600');
             }
-
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
@@ -815,134 +551,90 @@
             menu.classList.toggle('hidden');
         }
 
-        function renderLokariaGrid(data) {
+        // Render Lokaria Grid
+        function renderLokaria(data) {
             const grid = document.getElementById('lokaria-grid');
+            if (!grid) return;
             grid.innerHTML = '';
-
+            if (data.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-gray-500 text-sm">Tidak ditemukan banten yang sesuai dengan pencarian Anda.</div>`;
+                return;
+            }
             data.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'bg-white rounded-2xl border border-amber-200/80 shadow-sm hover:shadow-lg hover:border-bali-gold transition-all overflow-hidden flex flex-col justify-between group cursor-pointer';
-                card.onclick = () => openModal(item.id);
-
-                card.innerHTML = `
-                    <div>
-                        <div class="relative h-44 overflow-hidden">
-                            <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                            <span class="absolute top-3 left-3 bg-bali-brown/90 text-amber-100 text-[10px] font-bold px-2.5 py-1 rounded-full backdrop-blur-md">
-                                ${item.categoryName}
-                            </span>
+                grid.innerHTML += `
+                    <div class="bg-white rounded-2xl border border-amber-200/80 shadow-sm overflow-hidden hover:shadow-md transition-all flex flex-col justify-between">
+                        <div>
+                            <div class="h-40 bg-amber-100 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent z-10"></div>
+                                <div class="absolute top-3 left-3 z-20">
+                                    <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-bali-gold text-slate-950 uppercase shadow">${item.tag}</span>
+                                </div>
+                                <div class="absolute bottom-3 left-3 right-3 z-20 text-white">
+                                    <h3 class="font-serif font-bold text-lg leading-tight">${item.nama}</h3>
+                                </div>
+                                <div class="absolute inset-0 flex items-center justify-center text-amber-700/40 text-5xl font-serif font-bold">
+                                    <i class="fa-solid fa-basket-shopping"></i>
+                                </div>
+                            </div>
+                            <div class="p-4 space-y-3">
+                                <div>
+                                    <h4 class="text-[11px] font-bold text-bali-brown uppercase tracking-wider">Makna Filosofis</h4>
+                                    <p class="text-xs text-gray-700 mt-1 leading-relaxed">${item.makna}</p>
+                                </div>
+                                <div>
+                                    <h4 class="text-[11px] font-bold text-bali-brown uppercase tracking-wider">Bahan / Sarana Pokok</h4>
+                                    <p class="text-xs text-gray-600 mt-1 leading-relaxed">${item.bahan}</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="p-5 space-y-2">
-                            <h3 class="font-serif font-bold text-lg text-gray-900 group-hover:text-bali-brown transition-colors">${item.title}</h3>
-                            <p class="text-xs text-gray-600 line-clamp-2 leading-relaxed">${item.meaning}</p>
+                        <div class="p-4 pt-0">
+                            <button onclick="askAilokaAbout('${item.nama}')" class="w-full py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-bali-brown font-semibold text-xs transition-colors flex items-center justify-center gap-2 border border-amber-200">
+                                <i class="fa-solid fa-robot"></i> Tanya AI Detail Banten Ini
+                            </button>
                         </div>
-                    </div>
-                    <div class="px-5 pb-5 pt-2 flex items-center justify-between text-xs font-semibold text-bali-darkgold border-t border-gray-50">
-                        <span>Lihat Modul & Cara Buat</span>
-                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                     </div>
                 `;
-                grid.appendChild(card);
             });
         }
 
-        function filterLokaria(category) {
-            if(category === 'all') {
-                renderLokariaGrid(bantenData);
+        function filterLokaria(cat) {
+            const btns = document.querySelectorAll('.lokaria-filter-btn');
+            btns.forEach(b => {
+                b.classList.remove('bg-white', 'text-bali-brown', 'shadow');
+                b.classList.add('bg-white/20', 'text-white');
+            });
+            event.target.classList.remove('bg-white/20', 'text-white');
+            event.target.classList.add('bg-white', 'text-bali-brown', 'shadow');
+
+            if (cat === 'all') {
+                renderLokaria(lokariaData);
             } else {
-                const filtered = bantenData.filter(item => item.category === category);
-                renderLokariaGrid(filtered);
+                const filtered = lokariaData.filter(i => i.kategori === cat);
+                renderLokaria(filtered);
             }
         }
 
-        function openModal(id) {
-            const item = bantenData.find(b => b.id === id);
-            if(!item) return;
-
-            document.getElementById('modal-title').innerText = item.title;
-            document.getElementById('modal-category-badge').innerText = item.categoryName;
-            document.getElementById('modal-image').src = item.image;
-            document.getElementById('modal-meaning').innerText = item.meaning;
-
-            const saranaList = document.getElementById('modal-sarana-list');
-            saranaList.innerHTML = item.sarana.map(s => `<li class="text-xs text-gray-700">${s}</li>`).join('');
-
-            const stepsList = document.getElementById('modal-steps-list');
-            stepsList.innerHTML = item.steps.map(st => `<li class="text-xs text-gray-700 leading-relaxed">${st}</li>`).join('');
-
-            document.getElementById('banten-modal').classList.remove('hidden');
+        function searchLokaria(query) {
+            const q = query.toLowerCase();
+            const filtered = lokariaData.filter(i => 
+                i.nama.toLowerCase().includes(q) || 
+                i.makna.toLowerCase().includes(q) || 
+                i.bahan.toLowerCase().includes(q) ||
+                i.tag.toLowerCase().includes(q)
+            );
+            renderLokaria(filtered);
         }
 
-        function closeModal() {
-            document.getElementById('banten-modal').classList.add('hidden');
+        // AILOKA Chat System
+        function askAilokaAbout(bantenName) {
+            switchTab('ailoka');
+            sendPrompt(`Tolong jelaskan secara mendalam mengenai makna, bahan, dan tata cara banten ${bantenName}!`);
         }
 
-        function sendPrompt(promptText) {
-            document.getElementById('chat-input').value = promptText;
-            handleChatSubmit(new Event('submit'));
-        }
-
-        function handleChatSubmit(e) {
-            e.preventDefault();
+        function sendPrompt(text) {
             const input = document.getElementById('chat-input');
-            const query = input.value.trim();
-            if(!query) return;
-
-            // Render User Message
-            appendMessage('user', query);
-            input.value = '';
-
-            // Simulate AI Pemangku response delay
-            setTimeout(() => {
-                const reply = generateAIReply(query);
-                appendMessage('ai', reply);
-            }, 600);
-        }
-
-        function appendMessage(sender, text) {
-            const container = document.getElementById('chat-messages');
-            const msgDiv = document.createElement('div');
-
-            if(sender === 'user') {
-                msgDiv.className = 'flex items-start gap-3 justify-end';
-                msgDiv.innerHTML = `
-                    <div class="bg-bali-brown text-white rounded-2xl rounded-tr-none p-3.5 max-w-[85%] text-xs sm:text-sm shadow-sm leading-relaxed">
-                        ${text}
-                    </div>
-                    <div class="w-8 h-8 rounded-full bg-amber-100 text-bali-brown flex-shrink-0 flex items-center justify-center text-xs font-bold">
-                        U
-                    </div>
-                `;
-            } else {
-                msgDiv.className = 'flex items-start gap-3';
-                msgDiv.innerHTML = `
-                    <div class="w-8 h-8 rounded-full bg-bali-green text-white flex-shrink-0 flex items-center justify-center text-xs">
-                        <i class="fa-solid fa-om"></i>
-                    </div>
-                    <div class="chat-bubble-ai rounded-2xl rounded-tl-none p-4 max-w-[85%] text-xs sm:text-sm text-gray-800 shadow-sm leading-relaxed">
-                        <p class="font-bold text-bali-brown mb-1">Virtual Pemangku:</p>
-                        ${text}
-                    </div>
-                `;
-            }
-
-            container.appendChild(msgDiv);
-            container.scrollTop = container.scrollHeight;
-        }
-
-        function generateAIReply(q) {
-            const lower = q.toLowerCase();
-            if(lower.includes('canang')) {
-                return 'Suksma atas pertanyaannya. <strong>Canang Sari</strong> adalah inti dari setiap banten. Kata <em>Canang</em> berarti keindahan yang bersumber dari hati yang tulus, sedangkan <em>Sari</em> adalah inti/sari pemujaan. Porosan di dalamnya menyimbolkan Tri Murti (Brahma, Vishnu, Shiva).';
-            } else if(lower.includes('pejati')) {
-                return '<strong>Banten Pejati</strong> berfungsi sebagai penyaksi permohonan kita kepada Ida Sang Hyang Widhi Wasa. Pejati terdiri dari 4 unsur utama: Daksina, Peras, Ajuman/Sodan, dan Pras/Tipat Kelanan.';
-            } else if(lower.includes('kantha') || lower.includes('madya') || lower.includes('utama')) {
-                return 'Dalam upakara Hindu Bali, dikenal 3 tingkatan (Tri Manggalaning Yadnya):<br>1. <strong>Kantha / Nista</strong>: Tingkatan paling sederhana (fokus pada ketulusan/sradha).<br>2. <strong>Madya</strong>: Tingkatan sedang/menengah.<br>3. <strong>Utama</strong>: Tingkatan lengkap/besar sesuai dengan kemampuan dan sastra.';
-            } else if(lower.includes('daksina')) {
-                return '<strong>Banten Daksina</strong> dianggap sebagai wujud sthana (tempat kedudukan) Tuhan/Pramana. Daksina wajib dipelihara keberadaannya dalam setiap ritual penting sebagai sarana pensucian.';
-            } else {
-                return `Suksma atas pertanyaan Anda mengenai <em>"${q}"</em>. Dalam ajaran kebudayaan Hindu Bali, pelaksanaan upakara senantiasa berpedoman pada prinsip <strong>Desa, Kala, Patra</strong> (tempat, waktu, situasi) serta rasa tulus ikhlas (Sradha & Bhakti) tanpa membebankan umat.`;
-            }
+            if (input) input.value = text;
+            handleChatSubmit(new Event('submit'));
         }
 
         function clearChat() {
@@ -954,110 +646,199 @@
                     </div>
                     <div class="chat-bubble-ai rounded-2xl rounded-tl-none p-4 max-w-[85%] text-xs sm:text-sm text-gray-800 shadow-sm leading-relaxed">
                         <p class="font-bold text-bali-brown mb-1">Om Swastyastu! 🙏</p>
-                        <p>Chat telah direset. Silakan ajukan pertanyaan seputar upakara adat Bali.</p>
+                        <p>Chat telah direset. Silakan tanyakan kembali hal seputar upakara, banten, atau tradisi Hindu Bali kepada AILOKA.</p>
                     </div>
                 </div>
             `;
         }
 
-        function loadQuizQuestion() {
-            const current = quizData[currentQuizIndex];
-            document.getElementById('quiz-step-indicator').innerText = `Pertanyaan ${currentQuizIndex + 1} dari ${quizData.length}`;
-            document.getElementById('quiz-question-title').innerText = current.question;
+        function handleChatSubmit(e) {
+            if (e) e.preventDefault();
+            const input = document.getElementById('chat-input');
+            const container = document.getElementById('chat-messages');
+            const q = input.value.trim();
+            if (!q) return;
 
-            // Update Progress bar
-            const prog = ((currentQuizIndex + 1) / quizData.length) * 100;
-            document.getElementById('quiz-progress-bar').style.width = `${prog}%`;
+            // Append user bubble
+            container.innerHTML += `
+                <div class="flex items-start justify-end gap-3">
+                    <div class="bg-bali-brown text-white rounded-2xl rounded-tr-none p-4 max-w-[85%] text-xs sm:text-sm shadow-sm leading-relaxed">
+                        <p>${q}</p>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-gray-300 text-gray-700 flex-shrink-0 flex items-center justify-center text-xs">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                </div>
+            `;
+            input.value = '';
+            container.scrollTop = container.scrollHeight;
 
-            // Reset Options
-            const container = document.getElementById('quiz-options-container');
-            container.innerHTML = '';
+            // Simulate AI Response
+            setTimeout(() => {
+                let reply = `Berdasarkan rujukan sastra upakara dan tradisi Hindu Bali, pertanyaan mengenai "${q}" berkaitan erat dengan penerapan unsur tattwa, susila, dan upacara dalam kehidupan beragama Hindu.`;
+                const lowerQ = q.toLowerCase();
+                if (lowerQ.includes('canang')) {
+                    reply = `Canang Sari adalah persembahan harian yang paling mendasar. Terdiri dari unsur kepah, ceper (sebagai lambang ardha candra), jejaitan janur, porosan (pencipta tri kona: Brahma, Wisnu, Iswara), bunga aneka warna sebagai lambang pancawarna, serta kembang rampai. Maknanya adalah ketulusan hati menyerahkan diri kepada Ida Sang Hyang Widhi Wasa[cite: 2].`;
+                } else if (lowerQ.includes('pengambian')) {
+                    reply = `Banten Pengambian melambangkan dada kiri atau angā yadnya, yang berkaitan erat dengan permohonan anugerah, kelancaran, serta penerimaan unsur-unsur kesucian dalam suatu upacara[cite: 2].`;
+                } else if (lowerQ.includes('suci ageng')) {
+                    reply = `Banten Suci Ageng adalah banten utama yang ditanding pada sok suci untuk melengkapi Dewa Yadnya tingkat utama, berisikan sarana Panca Pala, Duma, Bayuan, Samuhan Guling, hingga Daksina[cite: 3].`;
+                } else if (lowerQ.includes('byakala')) {
+                    reply = `Byakala merupakan sarana pabersihan (pembersihan secara niskala) yang bertujuan untuk menyucikan diri dari segala cuntaka atau pengaruh energi negatif sebelum melaksanakan upacara[cite: 3].`;
+                } else if (lowerQ.includes('panca yadnya')) {
+                    reply = `Panca Yadnya adalah lima bentuk pengorbanan suci tulus ikhlas umat Hindu, meliputi: Dewa Yadnya (ke hadapan Tuhan), Rsi Yadnya (kepada guru/rsi), Pitra Yadnya (kepada leluhur), Manusa Yadnya (kepada sesama manusia), dan Bhuta Yadnya (kepada alam lingkungan).`;
+                }
 
-            current.options.forEach((opt, idx) => {
-                const btn = document.createElement('button');
-                btn.className = 'w-full text-left p-4 rounded-2xl border border-gray-200 hover:border-bali-gold hover:bg-amber-50/50 text-xs sm:text-sm font-medium transition-all flex items-center gap-3 group';
-                btn.onclick = () => selectQuizAnswer(idx);
-                btn.innerHTML = `
-                    <span class="w-7 h-7 rounded-full bg-gray-100 group-hover:bg-bali-gold group-hover:text-white flex items-center justify-center text-xs font-bold text-gray-600 flex-shrink-0 transition-colors">
-                        ${String.fromCharCode(65 + idx)}
-                    </span>
-                    <span class="text-gray-800">${opt}</span>
+                container.innerHTML += `
+                    <div class="flex items-start gap-3">
+                        <div class="w-8 h-8 rounded-full bg-bali-green text-white flex-shrink-0 flex items-center justify-center text-xs">
+                            <i class="fa-solid fa-om"></i>
+                        </div>
+                        <div class="chat-bubble-ai rounded-2xl rounded-tl-none p-4 max-w-[85%] text-xs sm:text-sm text-gray-800 shadow-sm leading-relaxed">
+                            <p class="font-bold text-bali-brown mb-1">Virtual Pemangku AILOKA:</p>
+                            <p>${reply}</p>
+                        </div>
+                    </div>
                 `;
-                container.appendChild(btn);
+                container.scrollTop = container.scrollHeight;
+            }, 600);
+        }
+
+        // NANKARA Quiz System
+        const quizData = [
+            {
+                question: "Banten harian yang paling mendasar dan sering dijumpai sebagai wujud persembahan suci sehari-hari di Bali adalah...",
+                options: ["Canang Sari", "Banten Pejati", "Banten Suci Ageng", "Gebogan Utama"],
+                answer: 0
+            },
+            {
+                question: "Apa makna filosofis utama dari unsur Porosan (sirih, pinang, kapur) di dalam kelengkapan banten?",
+                options: [
+                    "Sebagai hiasan agar banten terlihat indah",
+                    "Simbol pemujaan terhadap manifestasi Tri Kona (Brahma, Wisnu, Iswara)",
+                    "Sebagai sarana untuk mengusir hama tanaman",
+                    "Simbol hasil bumi untuk upacara Bhuta Yadnya"
+                ],
+                answer: 1
+            },
+            {
+                question: "Banten yang berfungsi sebagai sarana pembersihan niskala (pabersihan diri) untuk menghilangkan pengaruh negatif atau cuntaka adalah...",
+                options: ["Banten Peras", "Banten Byakala", "Banten Dapetan", "Banten Sesayut"],
+                answer: 1
+            },
+            {
+                question: "Kata 'Peras' pada Banten Peras mengandung makna filosofis yang berkaitan dengan...",
+                options: [
+                    "Prasidha atau tercapainya keberhasilan dan restu suci",
+                    "Pembersihan kotoran fisik secara sekala",
+                    "Persembahan khusus untuk para bhuta kala",
+                    "Penyambutan tamu agung di pura"
+                ],
+                answer: 0
+            },
+            {
+                question: "Manakah yang termasuk dalam kerangka lima bentuk pengorbanan suci tulus ikhlas dalam ajaran Hindu (Panca Yadnya)?",
+                options: [
+                    "Dewa Yadnya, Rsi Yadnya, Pitra Yadnya, Manusa Yadnya, Bhuta Yadnya",
+                    "Tri Hita Karana, Sad Kerthi, Catur Brata",
+                    "Bhakti Marga, Jnana Marga, Karma Marga, Raja Marga",
+                    "Surya, Chandra, Agni, Bayu, Pertiwi"
+                ],
+                answer: 0
+            }
+        ];
+
+        let currentQuizIndex = 0;
+        let userScore = 0;
+        let selectedOptionIndex = null;
+
+        function initQuiz() {
+            currentQuizIndex = 0;
+            userScore = 0;
+            document.getElementById('quiz-score-display').innerText = userScore;
+            loadQuizQuestion();
+        }
+
+        function loadQuizQuestion() {
+            selectedOptionIndex = null;
+            const q = quizData[currentQuizIndex];
+            document.getElementById('quiz-step-indicator').innerText = `Pertanyaan ${currentQuizIndex + 1} dari${quizData.length}`;
+            document.getElementById('quiz-question-title').innerText = q.question;
+            
+            const progress = ((currentQuizIndex) / quizData.length) * 100;
+            document.getElementById('quiz-progress-bar').style.width = `${progress}%`;
+
+            const optContainer = document.getElementById('quiz-options-container');
+            optContainer.innerHTML = '';
+            q.options.forEach((opt, idx) => {
+                optContainer.innerHTML += `
+                    <button onclick="selectQuizOption(${idx})" id="quiz-opt-${idx}" class="w-full text-left p-3.5 rounded-xl border border-amber-200/80 hover:border-bali-gold hover:bg-amber-50/50 text-xs sm:text-sm text-gray-800 transition-all font-medium flex items-center justify-between group bg-white">
+                        <span><strong class="mr-2 text-bali-gold">${String.fromCharCode(65 + idx)}.</strong>${opt}</span>
+                        <span class="w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center text-[10px] text-transparent group-hover:border-bali-gold">
+                            <i class="fa-solid fa-check"></i>
+                        </span>
+                    </button>
+                `;
             });
 
-            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('quiz-feedback-box').classList.add('hidden');
             document.getElementById('quiz-next-btn').classList.add('hidden');
         }
 
-        function selectQuizAnswer(selectedIndex) {
-            const current = quizData[currentQuizIndex];
-            const feedback = document.getElementById('quiz-feedback');
-            const buttons = document.getElementById('quiz-options-container').children;
+        function selectQuizOption(idx) {
+            if (selectedOptionIndex !== null) return; // Already answered
+            selectedOptionIndex = idx;
+            const q = quizData[currentQuizIndex];
+            const feedbackBox = document.getElementById('quiz-feedback-box');
+            feedbackBox.classList.remove('hidden');
 
-            // Disable all buttons
-            for(let btn of buttons) {
-                btn.disabled = true;
-                btn.classList.add('opacity-75', 'cursor-not-allowed');
-            }
-
-            if(selectedIndex === current.correct) {
-                score += 20;
-                buttons[selectedIndex].classList.remove('border-gray-200');
-                buttons[selectedIndex].classList.add('border-emerald-500', 'bg-emerald-50');
-                
-                feedback.className = 'p-4 rounded-xl text-xs sm:text-sm font-medium bg-emerald-50 border border-emerald-200 text-emerald-900 block';
-                feedback.innerHTML = `
-                    <p class="font-bold flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-emerald-600"></i> Jawaban Benar!</p>
-                    <p class="mt-1">${current.explanation}</p>
-                `;
+            const isCorrect = (idx === q.answer);
+            if (isCorrect) {
+                userScore += 20;
+                document.getElementById('quiz-score-display').innerText = userScore;
+                feedbackBox.className = "p-4 rounded-xl text-xs sm:text-sm bg-emerald-50 border border-emerald-200 text-emerald-900 font-medium";
+                feedbackBox.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> <strong>Benar!</strong> Jawaban Anda tepat sekali.`;
+                document.getElementById(`quiz-opt-${idx}`).classList.add('bg-emerald-100', 'border-emerald-500');
             } else {
-                buttons[selectedIndex].classList.add('border-rose-500', 'bg-rose-50');
-                buttons[current.correct].classList.add('border-emerald-500', 'bg-emerald-50');
-
-                feedback.className = 'p-4 rounded-xl text-xs sm:text-sm font-medium bg-rose-50 border border-rose-200 text-rose-900 block';
-                feedback.innerHTML = `
-                    <p class="font-bold flex items-center gap-1.5"><i class="fa-solid fa-circle-xmark text-rose-600"></i> Jawaban Kurang Tepat.</p>
-                    <p class="mt-1">${current.explanation}</p>
-                `;
+                feedbackBox.className = "p-4 rounded-xl text-xs sm:text-sm bg-rose-50 border border-rose-200 text-rose-900 font-medium";
+                feedbackBox.innerHTML = `<i class="fa-solid fa-circle-xmark text-rose-600 mr-1.5"></i> <strong>Kurang tepat.</strong> Jawaban yang benar adalah: <strong>${q.options[q.answer]}</strong>`;
+                document.getElementById(`quiz-opt-${idx}`).classList.add('bg-rose-100', 'border-rose-500');
+                document.getElementById(`quiz-opt-${q.answer}`).classList.add('bg-emerald-50', 'border-emerald-400');
             }
 
-            document.getElementById('quiz-score-display').innerText = `${score} / 100`;
             document.getElementById('quiz-next-btn').classList.remove('hidden');
-            document.getElementById('quiz-next-btn').classList.add('flex');
         }
 
-        function nextQuestion() {
-            if(currentQuizIndex < quizData.length - 1) {
-                currentQuizIndex++;
+        function nextQuizQuestion() {
+            currentQuizIndex++;
+            if (currentQuizIndex < quizData.length) {
                 loadQuizQuestion();
             } else {
-                // Show Final Result Card
-                const container = document.getElementById('quiz-options-container');
-                document.getElementById('quiz-question-title').innerText = 'Kuis Selesai!';
-                document.getElementById('quiz-step-indicator').innerText = 'Hasil Akhir';
-                container.innerHTML = `
-                    <div class="text-center py-6 space-y-4">
-                        <div class="w-20 h-20 rounded-full bg-amber-100 text-bali-gold mx-auto flex items-center justify-center text-3xl font-bold border-2 border-bali-gold">
-                            ${score}
-                        </div>
-                        <h4 class="text-lg font-bold text-gray-900">Skor Akhir Anda: ${score} dari 100</h4>
-                        <p class="text-xs text-gray-600 max-w-md mx-auto">
-                            ${score >= 80 ? 'Sangat Luar Biasa! Anda memiliki pemahaman yang amat mendalam mengenai upakara adat Bali.' : 'Usaha yang bagus! Tingkatkan terus literasi upakara Anda melalui modul LOKARIA dan AILOKA.'}
-                        </p>
+                // Quiz Complete
+                document.getElementById('quiz-progress-bar').style.width = '100%`;
+                document.getElementById('quiz-step-indicator').innerText = "Kuis Selesai!";
+                document.getElementById('quiz-question-title').innerText = `Selamat! Anda telah menyelesaikan seluruh kuis LOKAKARA.`;
+                document.getElementById('quiz-options-container').innerHTML = `
+                    <div class="bg-amber-50 p-6 rounded-2xl border border-amber-200 text-center space-y-3">
+                        <i class="fa-solid fa-trophy text-4xl text-bali-gold"></i>
+                        <h4 class="text-lg font-bold text-bali-brown">Total Skor Akhir Anda: ${userScore} / 100</h4>
+                        <p class="text-xs text-gray-600">Terima kasih telah menguji pemahaman Anda mengenai upakara adat Bali. Terus lestarikan budaya dan tradisi leluhur!</p>
                     </div>
                 `;
-                document.getElementById('quiz-feedback').classList.add('hidden');
+                document.getElementById('quiz-feedback-box').classList.add('hidden');
                 document.getElementById('quiz-next-btn').classList.add('hidden');
             }
         }
 
-        function restartQuiz() {
-            currentQuizIndex = 0;
-            score = 0;
-            document.getElementById('quiz-score-display').innerText = `0 / 100`;
-            loadQuizQuestion();
+        function resetQuiz() {
+            initQuiz();
         }
+
+        // Initialize on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            renderLokaria(lokariaData);
+            initQuiz();
+        });
     </script>
 </body>
 </html>
